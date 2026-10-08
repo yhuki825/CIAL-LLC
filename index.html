@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<!--
+================================================================
+  合同会社CIAL ブランドサイト デザイン案（9/26 ハウススタイル版）
+  コンセプト：「commer·CIAL と so·CIAL の、重なるところ」
+    社名「CIAL」を、広告を意味する commercial と、人のつながりを意味する social に共通する綴り、と読む案です。
+    広告（commercial）の力と、紹介という人のつながり（social）の力。そのふたつが重なる場所で、
+    企業の成長につながる出会いをつくる会社として描きます。
+    ・ヒーロー：ひとつの点が隣へ線を結び、その点がまた次を結ぶ——紹介が連鎖して広がるCanvasアニメーション
+    ・右端のスクロールレール：鎖の輪がひとつずつ連なり、何件目の紹介かを表示
+    ※所在地・地名、代表者の氏名から着想した要素は採用していません。
+  デプロイ：Cloudflare Pages（Direct Upload）にこのファイルをそのままアップロード。
+            ビルド不要。外部依存は Google Fonts と Unsplash 画像のみ。
+  書体：Zen Old Mincho ＋ Zen Kaku Gothic New ＋ Jost ／ 地色：藍 #141833 ／ アクセント：青紫 #8FA2FF
+
+  ■ 公開前の確認事項（チェックリスト）
+  【確認事項】1. 社名の由来：「commercial／social に共通する綴り」という解釈は本案の仮説です
+  【確認事項】2. キャッチコピー「ひとつの紹介を、次の商談に。」は案です
+  【確認事項】3. CSVの事業内容は「広告業（企業の成長を支える紹介・営業支援型広告事業）」の一文のみです。
+                「紹介型」「営業支援型」の2つに分けた説明、進め方4ステップ、大切にしていること3つは、いずれもこの一文を膨らませた案です
+  【確認事項】4. 対応業種・対応エリア・成果の数値・取引先はCSVにないため記載していません
+  【確認事項】5. 成果を保証する表現は使っていません（景品表示法の観点）。紹介料の授受がある場合は、紹介であることの表示方法もご確認ください
+  【確認事項】6. 英字の見出しは飾りの仮表記です
+  【確認事項】7. 代表者の役職名（合同会社＝「代表社員」と仮置き）
+  【確認事項】8. 代表メッセージは草案です。ご本人の確認・修正を経て公開してください
+  【確認事項】9. 設立・資本金・従業員数はCSVにないため会社概要ではコメントアウト
+  【確認事項】10. 画像はUnsplashのフリー素材（仮）。自社写真への差し替え推奨
+  [ ] OGP画像・favicon・公開URL
+  写真ID：1600880292089-90a7e086ee0c（重ねた手）／1521791136064-7986c2920216（握手）／
+          1556761175-b413da4baf72（チーム）／1557425493-6f90ae4659fc（打ち合わせ）
+================================================================
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>合同会社CIAL｜紹介・営業支援型の広告事業</title>
+<meta name="description" content="合同会社CIALは、企業の成長を支える紹介・営業支援型の広告事業を行う会社です。広告を「見られて終わり」にせず、営業の現場で成果につながる出会いへつなぎます。">
+<meta property="og:title" content="合同会社CIAL｜紹介・営業支援型の広告事業">
+<meta property="og:description" content="合同会社CIALは、企業の成長を支える紹介・営業支援型の広告事業を行う会社です。広告を「見られて終わり」にせず、営業の現場で成果につながる出会いへつなぎます。">
+<meta property="og:type" content="website">
+<!-- 要確認：og:url / og:image は公開ドメイン確定後に設定 -->
+<meta name="theme-color" content="#141833">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141833'/%3E%3Cpath d='M8 22 16 10 24 22' fill='none' stroke='%238FA2FF' stroke-width='1.6'/%3E%3Ccircle cx='8' cy='22' r='3' fill='%238FA2FF'/%3E%3Ccircle cx='16' cy='10' r='3' fill='%23EEEFF7'/%3E%3Ccircle cx='24' cy='22' r='3' fill='%238FA2FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{--base:#141833;--base-2:#1B2042;--deep:#0F1228;--text:#EEEFF7;--mute:#9499B8;--accent:#8FA2FF;--line:rgba(238,239,247,.14);--paper:#ECEDF5;--ink:#171B38;--paper-line:rgba(23,27,56,.16);--paper-mute:#5A5F80;--header-bg:rgba(20,24,51,.86);--menu-bg:rgba(15,18,40,.97);--band-veil:rgba(15,18,40,.72);--shape:2px 90px 2px 2px;--ph-fallback:linear-gradient(140deg,#1B2042,#141833);--ph-pattern:radial-gradient(circle,rgba(143,162,255,.5) 2px,transparent 2.5px) 0 0/34px 34px,linear-gradient(140deg,#1B2042,#141833);--serif:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;--sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;--latin:"Jost","Helvetica Neue",Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--header-h:72px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--base);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.04em;word-break:auto-phrase;text-wrap:pretty;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,dl,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.nw{display:inline-block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--accent);color:var(--base);padding:10px 16px;text-decoration:none;font-weight:700}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1160px,calc(100% - 48px));margin:0 auto}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid transparent;transition:background .4s,backdrop-filter .4s,border-color .4s}
+.header.is-scrolled{background:var(--header-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line)}
+.header__in{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1240px,calc(100% - 40px));margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.logo svg{width:30px;height:30px;flex:none}
+.logo__name{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.logo__name b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.12em;white-space:nowrap}
+.logo__name small{font-size:10.5px;letter-spacing:.18em;color:var(--mute);white-space:nowrap}
+.gnav ul{display:flex;gap:clamp(18px,2.2vw,30px)}
+.gnav a{position:relative;display:block;padding:6px 0;font-size:13.5px;letter-spacing:.13em;text-decoration:none}
+.gnav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.gnav a:hover::after,.gnav a:focus-visible::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;position:relative;padding:0}
+.menu-btn span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .3s,opacity .3s}
+.menu-btn span:nth-child(1){top:16px}.menu-btn span:nth-child(2){top:22px}.menu-btn span:nth-child(3){top:28px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  :root{--header-h:64px}
+  .menu-btn{display:block;z-index:120}
+  .gnav{position:fixed;inset:0;background:var(--menu-bg);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;z-index:110}
+  .gnav.is-open{opacity:1;visibility:visible}
+  .gnav ul{flex-direction:column;align-items:center;gap:26px}
+  .gnav a{font-family:var(--serif);font-size:20px;letter-spacing:.16em}
+}
+
+/* sections */
+.sec{position:relative;padding:clamp(96px,14vw,180px) 0}
+.sec--alt{background:var(--base-2)}
+.sec--deep{background:var(--deep)}
+.sec--paper{background:var(--paper);color:var(--ink);--line:var(--paper-line);--mute:var(--paper-mute);--text:var(--ink)}
+.sh{margin-bottom:clamp(40px,6vw,72px)}
+.sh__ja{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.8vw,36px);letter-spacing:.12em;line-height:1.55}
+.sh__en{font-family:var(--latin);color:var(--accent)}
+.sh__sub{margin-top:14px;color:var(--mute);font-size:14px;letter-spacing:.1em}
+.lead{font-family:var(--serif);font-size:clamp(20px,2.3vw,28px);line-height:1.8;letter-spacing:.1em}
+.prose p{max-width:34em}
+.prose p+p{margin-top:1.3em}
+
+/* concept */
+.concept{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(40px,7vw,110px);align-items:center}
+.concept .lead{margin-bottom:28px}
+.fig{width:100%;height:auto;display:block;overflow:visible}
+@media (max-width:900px){.concept{grid-template-columns:minmax(0,1fr)}}
+
+/* photo */
+.ph{position:relative;overflow:hidden;background:var(--ph-fallback)}
+.ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.03)}
+.ph.is-fallback{background:var(--ph-pattern)}
+
+/* band */
+.band{position:relative;height:clamp(280px,46vw,540px);overflow:hidden}
+.band .ph{position:absolute;inset:0}
+.band .ph img{position:absolute;left:0;top:-9%;height:118%;filter:saturate(.68) brightness(.7);will-change:transform}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,var(--band-veil));pointer-events:none}
+.band__cap{position:absolute;left:0;right:0;bottom:clamp(28px,5vw,56px);z-index:2}
+.band__cap p{font-family:var(--serif);font-size:clamp(19px,2.4vw,30px);letter-spacing:.16em;line-height:1.7;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+
+/* business rows */
+.biz{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center;position:relative}
+.biz+.biz{margin-top:clamp(72px,10vw,128px)}
+.biz:nth-of-type(even) .biz__media{order:2}
+.biz__media .ph{aspect-ratio:4/3;border-radius:var(--shape)}
+.biz__media .ph img{transition:transform 1.4s cubic-bezier(.22,.7,.2,1)}
+.biz:hover .biz__media .ph img{transform:scale(1.035)}
+.biz__kind{font-size:13.5px;letter-spacing:.16em;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.biz__kind em{font-family:var(--latin);font-style:italic;font-size:15px;letter-spacing:.06em;color:var(--mute)}
+.biz h3{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:.12em;line-height:1.6;margin-bottom:18px}
+.biz p{max-width:30em}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:12.5px;letter-spacing:.08em;color:var(--mute)}
+.rule-list{margin-top:22px;border-top:1px solid var(--line)}
+.rule-list li{position:relative;padding:12px 0 12px 1.5em;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.7}
+.rule-list li::before{content:"";position:absolute;left:0;top:1.25em;width:7px;height:7px;background:var(--accent);border-radius:var(--bullet-r,50%)}
+@media (max-width:900px){.biz{grid-template-columns:minmax(0,1fr)}.biz:nth-of-type(even) .biz__media{order:0}}
+
+/* steps (actual order -> numbered) */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
+.steps::after{content:"";position:absolute;left:0;top:11px;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 2.4s cubic-bezier(.6,.1,.2,1)}
+.steps.is-in::after{transform:scaleX(1)}
+.step{position:relative;padding-top:44px}
+.step__dot{position:absolute;left:0;top:0;width:23px;height:23px;border-radius:var(--dot-r,50%);border:1px solid var(--mute);background:var(--step-bg,var(--base));display:grid;place-items:center}
+.step__dot::after{content:"";width:11px;height:11px;border-radius:var(--dot-r,50%);background:var(--accent);transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.steps.is-in .step__dot::after{transform:scale(1)}
+.steps.is-in .step:nth-child(2) .step__dot::after{transition-delay:.6s}
+.steps.is-in .step:nth-child(3) .step__dot::after{transition-delay:1.2s}
+.steps.is-in .step:nth-child(4) .step__dot::after{transition-delay:1.8s}
+.step__no{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.step h3{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;margin:6px 0 10px}
+.step p{font-size:14.5px;line-height:1.85;color:var(--mute)}
+.loop-note{margin-top:40px;display:flex;align-items:center;gap:12px;color:var(--mute);font-size:14px;letter-spacing:.1em}
+.loop-note svg{width:22px;height:22px;fill:none;stroke:var(--accent);stroke-width:1.4}
+@media (max-width:900px){
+  .steps{grid-template-columns:minmax(0,1fr);gap:0;padding-left:40px}
+  .steps::before,.steps::after{left:11px;right:auto;top:10px;bottom:10px;width:1px;height:auto}
+  .steps::after{transform:scaleY(0);transform-origin:top}
+  .steps.is-in::after{transform:scaleY(1)}
+  .step{padding:0 0 36px}
+  .step__dot{left:-40px}
+}
+
+/* values */
+.values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.value{padding:36px clamp(20px,3vw,40px) 40px;border-right:1px solid var(--line)}
+.value:first-child{padding-left:0}.value:last-child{border-right:0;padding-right:0}
+.value__mark{font-family:var(--latin);color:var(--accent);font-size:15px;letter-spacing:.12em;margin-bottom:14px;display:block}
+.value h3{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;margin-bottom:12px;line-height:1.6}
+.value p{font-size:14.5px;color:var(--mute);line-height:1.9}
+@media (max-width:900px){.values{grid-template-columns:minmax(0,1fr)}.value{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}}
+
+/* message (vertical on desktop) */
+.msg{display:flex;flex-direction:row-reverse;gap:clamp(40px,6vw,90px);justify-content:center;align-items:flex-start}
+.msg__title{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.2em;line-height:1.7;flex:none}
+.msg__body{writing-mode:vertical-rl;font-family:var(--serif);font-size:16px;line-height:2.3;letter-spacing:.14em;height:30em;max-width:100%;overflow-x:auto;display:flex;flex-direction:column}
+.msg__body p{margin:0 0 0 1.6em}
+.msg__body p.first{font-size:1.3rem}
+.msg__sign{margin-top:auto;text-align:end}
+.msg__sign small{display:block;font-size:13px;color:var(--mute);letter-spacing:.2em}
+@media (max-width:860px){
+  .msg{flex-direction:column;gap:32px}
+  .msg__title,.msg__body{writing-mode:horizontal-tb;height:auto}
+  .msg__body{line-height:2.1;letter-spacing:.06em;overflow:visible}
+  .msg__body p{margin:0 0 1.4em}
+  .msg__sign{text-align:right}
+}
+
+/* company */
+.company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(40px,7vw,110px);align-items:start}
+.profile{margin:0;border-top:1px solid var(--line)}
+.profile>div{display:grid;grid-template-columns:9em minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.profile dt{color:var(--mute);font-size:14px;letter-spacing:.14em}
+.profile dd{margin:0;overflow-wrap:anywhere}
+.profile dd li{position:relative;padding-left:1.2em}
+.profile dd li+li{margin-top:4px}
+.profile dd li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;background:var(--accent);border-radius:var(--bullet-r,50%)}
+@media (max-width:900px){.company{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.profile>div{grid-template-columns:minmax(0,1fr);gap:4px}}
+
+/* footer */
+.footer{border-top:1px solid var(--line);padding:72px 0 calc(40px + env(safe-area-inset-bottom,0px));background:var(--deep)}
+.footer__in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px}
+.footer__tag{font-family:var(--serif);font-size:clamp(16px,1.8vw,22px);letter-spacing:.18em;margin-top:18px}
+.footer nav ul{display:flex;flex-wrap:wrap;gap:10px 24px}
+.footer nav a{font-size:12.5px;color:var(--mute);text-decoration:none;letter-spacing:.12em;transition:color .3s}
+.footer nav a:hover{color:var(--text)}
+.copy{margin-top:40px;font-family:var(--latin);font-size:13px;color:var(--mute);letter-spacing:.08em}
+
+/* reveal (only hidden when JS runs) */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity 1.05s cubic-bezier(.22,.7,.2,1),transform 1.05s cubic-bezier(.22,.7,.2,1)}
+.js .rv.is-in{opacity:1;transform:none}
+.js .steps .step{opacity:0;transition:opacity .9s cubic-bezier(.22,.7,.2,1)}
+.js .steps.is-in .step{opacity:1}
+.js .steps.is-in .step:nth-child(2){transition-delay:.4s}
+.js .steps.is-in .step:nth-child(3){transition-delay:.8s}
+.js .steps.is-in .step:nth-child(4){transition-delay:1.2s}
+/* self-drawing SVG */
+.fig .ln{fill:none;stroke:var(--accent);stroke-width:1.3;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s cubic-bezier(.45,.05,.2,1) .3s}
+.fig .ln2{fill:none;stroke:var(--mute);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s cubic-bezier(.45,.05,.2,1) .9s}
+.fig .dot{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);transition:opacity .8s 1.2s,transform .8s cubic-bezier(.3,1.6,.5,1) 1.2s}
+.fig .lbl{opacity:0;transition:opacity 1s 1.8s;font-family:var(--sans);font-size:13px;letter-spacing:.12em;fill:var(--text)}
+.fig .lbl.en{font-family:var(--latin);fill:var(--accent);font-size:13px}
+.fig.is-in .ln,.fig.is-in .ln2{stroke-dashoffset:0}
+.fig.is-in .dot{opacity:1;transform:none}
+.fig.is-in .lbl{opacity:1}
+
+/* scroll cue */
+.cue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--latin);font-size:11px;letter-spacing:.3em;color:var(--mute);z-index:3}
+.cue i{display:block;width:1px;height:44px;background:linear-gradient(var(--mute),transparent);animation:cue 2.4s ease-in-out infinite}
+@media (max-width:900px){.cue{display:none}}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* hero entrance (class toggle after first frame) */
+.hero [data-in]{opacity:0;transform:translateY(14px);transition:opacity 1.1s ease,transform 1.1s ease}
+.hero h1 [data-in]{transform:translateY(-14px)}
+.is-loaded .hero [data-in]{opacity:1;transform:none}
+.is-loaded .hero [data-in="2"]{transition-delay:.4s}
+.is-loaded .hero [data-in="3"]{transition-delay:.9s}
+.is-loaded .hero [data-in="4"]{transition-delay:1.3s}
+
+/* rail base */
+.rail{position:fixed;z-index:90;pointer-events:none}
+@media (max-width:900px){.rail{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .steps .step,.hero [data-in]{opacity:1!important;transform:none!important}
+  .fig .ln,.fig .ln2{stroke-dashoffset:0}.fig .dot,.fig .lbl{opacity:1;transform:none}
+  .steps::after{transform:none}.step__dot::after{transform:scale(1)}
+}
+/* ===== site ===== */
+/* heading H5: JA only + node glyph */
+.sh__en{display:none}
+.sh__ja{display:flex;align-items:center;gap:16px}
+.sh__ja::before{content:"";flex:none;width:34px;height:10px;background:radial-gradient(circle,var(--accent) 4px,transparent 4.5px) 0 50%/10px 10px no-repeat,radial-gradient(circle,var(--text) 4px,transparent 4.5px) 100% 50%/10px 10px no-repeat,linear-gradient(var(--mute),var(--mute)) 50% 50%/100% 1px no-repeat}
+/* hero A */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:radial-gradient(120% 90% at 70% 30%,#20265A 0%,var(--base) 60%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero__in{position:relative;z-index:2;min-height:100vh;min-height:100svh;width:min(1180px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;padding:calc(var(--header-h) + 50px) 0 80px}
+.hero__title{grid-column:2;writing-mode:vertical-rl;font-family:var(--serif);font-weight:500;font-size:clamp(36px,4.4vw,60px);letter-spacing:.2em;line-height:1.55;margin-right:clamp(0px,7vw,100px)}
+.hero__title span{display:block}
+.hero__title span+span{padding-top:2.6em}
+.hero__title b{font-weight:500;color:var(--accent)}
+.hero__low{grid-column:1;grid-row:1;align-self:end;max-width:29em}
+.hero__en{font-family:var(--latin);font-weight:300;font-size:13px;letter-spacing:.34em;color:var(--accent);margin-bottom:14px}
+.hero__lead{font-size:15px;line-height:2.05}
+@media (max-width:900px){
+  .hero__in{grid-template-columns:minmax(0,1fr);align-content:end;gap:26px}
+  .hero__title{grid-column:1;writing-mode:horizontal-tb;font-size:clamp(28px,8vw,38px);letter-spacing:.1em;margin:0}
+  .hero__title span+span{padding-top:0;padding-left:1em}
+  .hero__low{grid-row:2}
+}
+/* name equation */
+.eq{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin:8px 0 30px;font-family:var(--latin);font-weight:300;font-size:clamp(28px,4.4vw,56px);letter-spacing:.02em;line-height:1.1}
+.eq span{color:var(--mute)}
+.eq b{font-weight:500;color:var(--accent)}
+.eq i{font-style:normal;font-size:.6em;color:var(--text)}
+.eq-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);margin-top:30px}
+.eq-note div{padding:16px 0;border-bottom:1px solid var(--line)}
+.eq-note div+div{padding-left:22px;border-left:1px solid var(--line)}
+.eq-note b{display:block;font-family:var(--serif);font-size:18px;letter-spacing:.14em;font-weight:500}
+.eq-note small{font-family:var(--latin);color:var(--accent);letter-spacing:.14em}
+.concept .fig{max-width:460px;margin:0 auto}
+.biz__media .ph{aspect-ratio:5/4}
+.biz:nth-of-type(even) .biz__media .ph{border-radius:90px 2px 2px 2px}
+.biz .rule-list li::before{background:none;border:1.5px solid var(--accent)}
+.idea{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(40px,6vw,90px);align-items:center}
+.idea .fig{min-width:0}
+.chain-wrap{overflow-x:auto}
+.chain-wrap .fig{min-width:560px}
+@media (max-width:900px){.idea{grid-template-columns:minmax(0,1fr)}}
+.sec--paper .step__dot{--step-bg:var(--paper)}
+.company{align-items:stretch}
+.co-photo .ph{height:100%;min-height:260px;border-radius:2px 60px 2px 2px}
+@media (max-width:900px){.co-photo{display:none}}
+/* rail: chain links */
+.rail{right:24px;top:50%;transform:translateY(-50%);height:56vh;width:22px}
+.rail__line{position:absolute;left:10px;top:0;bottom:0;width:1px;background:var(--line)}
+.rail__link{position:absolute;left:4px;width:13px;height:20px;margin-top:-10px;border:1.5px solid var(--mute);border-radius:7px;opacity:.5;transition:border-color .4s,opacity .4s,transform .5s cubic-bezier(.3,1.6,.5,1);transform:scale(.8)}
+.rail__link.is-passed{border-color:var(--accent);opacity:1;transform:scale(1)}
+.rail__node{position:absolute;left:3px;top:0;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--text);box-shadow:0 0 0 4px rgba(143,162,255,.25),0 0 14px rgba(143,162,255,.7)}
+.rail__read{position:absolute;right:28px;bottom:-4px;font-family:var(--mono);font-size:11px;color:var(--mute);white-space:nowrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="header" id="header">
+  <div class="header__in">
+    <!-- 【確認事項】ロゴマーク（つながる3つの点）は仮です -->
+    <a class="logo" href="#top" aria-label="合同会社CIAL トップへ">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 23 16 9 25 23" fill="none" stroke="#9499B8" stroke-width="1.2"/><circle cx="16" cy="9" r="3.2" fill="#EEEFF7"/><circle cx="7" cy="23" r="3.2" fill="#8FA2FF"/><circle cx="25" cy="23" r="3.2" fill="#8FA2FF"/></svg>
+      <span class="logo__name"><b style="font-family:var(--latin);font-weight:500;letter-spacing:.24em">CIAL</b><small>合同会社CIAL</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-controls="gnav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー"><ul><li><a href="#concept">名前のこと</a></li><li><a href="#service">事業内容</a></li><li><a href="#idea">考え方</a></li><li><a href="#process">進め方</a></li><li><a href="#message">代表メッセージ</a></li><li><a href="#company">会社概要</a></li></ul></nav>
+  </div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="rail__line"></div>
+  <span class="rail__node" id="railNode"></span>
+  <span class="rail__read" id="railRead">紹介 01</span>
+</div>
+
+<main id="main">
+<section class="hero" id="top" aria-label="メインビジュアル">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero__in">
+      <!-- 【確認事項】キャッチコピーは案です -->
+      <h1 class="hero__title"><span data-in="1">ひとつの<b>紹介</b>を、</span><span data-in="2">次の商談に。</span></h1>
+      <div class="hero__low">
+        <p class="hero__en" data-in="3">REFERRAL × SALES SUPPORT</p>
+        <p class="hero__lead" data-in="3">合同会社CIALは、企業の成長を支える紹介・営業支援型の広告事業を行っています。広告を「見られて終わり」にせず、営業の現場で成果につながる出会いへ。</p>
+      </div>
+    </div>
+    <div class="cue" aria-hidden="true">scroll<i></i></div>
+  </section>
+
+  <section class="sec" id="concept" data-rail aria-labelledby="concept-h">
+    <div class="wrap concept">
+      <div>
+        <div class="sh rv"><p class="sh__en" aria-hidden="true">About the name</p><h2 class="sh__ja" id="concept-h">広告と、つながりの<br>重なるところに。</h2></div>
+        <!-- 【確認事項】社名の読み解きは本案の解釈です。実際の由来に合わせてください -->
+        <p class="eq rv" aria-label="commercial と social に共通する CIAL"><span>commer</span><b>CIAL</b><i>&amp;</i><span>so</span><b>CIAL</b></p>
+        <!-- 【確認事項】以下の文章はCSVの一文をもとに膨らませた案です -->
+        <div class="prose rv">
+          <p>企業が成長していくとき、いちばんの力になるのは<span class="nw">「この会社なら」</span>と思ってくれる相手との出会いです。</p>
+          <p>広告（commercial）の力と、紹介という人のつながり（social）の力。CIALは、そのふたつが重なる場所で、紹介と営業支援を軸にした広告事業を行っています。たくさんの人に見てもらうことだけを目指すのではなく、商談や取引につながる出会いを生むこと。広告を、営業の現場で働く力に変えていきます。</p>
+        </div>
+        <div class="eq-note rv"><div><small>commercial</small><b>広告で、知ってもらう</b></div><div><small>social</small><b>紹介で、信頼を渡す</b></div></div>
+      </div>
+      <div class="rv"><svg class="fig" viewBox="0 0 440 320" role="img" aria-label="広告（commercial）と人のつながり（social）のふたつの円が重なり、その重なりがCIALである図">
+  <circle class="ln2" pathLength="1" cx="160" cy="160" r="118"/>
+  <circle class="ln" pathLength="1" cx="280" cy="160" r="118"/>
+  <path class="ln" pathLength="1" d="M220 58 C 252 100, 252 220, 220 262 C 188 220, 188 100, 220 58 Z" style="stroke-width:2"/>
+  <circle class="dot" cx="220" cy="160" r="6" fill="#8FA2FF"/>
+  <text class="lbl" x="70" y="166">広告</text>
+  <text class="lbl en" x="62" y="188">commercial</text>
+  <text class="lbl" x="322" y="166">つながり</text>
+  <text class="lbl en" x="330" y="188">social</text>
+  <text class="lbl en" x="203" y="300">CIAL</text>
+</svg></div>
+    </div>
+  </section>
+
+  <!-- 画像：Unsplash（仮）重ねた手。差し替え推奨 -->
+  <div class="band" aria-hidden="true">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=2000&q=72" alt="" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></div>
+    <div class="band__cap wrap"><p>紹介は、信頼を<br>手渡すことから始まる。</p></div>
+  </div>
+
+  <section class="sec sec--alt" id="service" data-rail aria-labelledby="service-h">
+    <div class="wrap">
+      <div class="sh rv"><p class="sh__en" aria-hidden="true">Service</p><h2 class="sh__ja" id="service-h">事業内容</h2><p class="sh__sub">広告業（企業の成長を支える紹介・営業支援型広告事業）</p></div>
+      <!-- 【確認事項】2つに分けた説明と各項目は案です -->
+      <article class="biz">
+        <div class="biz__media rv"><div class="ph"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1100&q=72" alt="商談の場で握手を交わすふたり" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></div></div>
+        <div class="rv">
+          <p class="biz__kind">紹介型の広告 <em>Referral</em></p>
+          <h3>信頼できる紹介を、<br>出会いの入り口に。</h3>
+          <p>信頼できる紹介を入り口に、企業と、その企業を必要とする相手をつなぎます。</p>
+          <ul class="rule-list"><li>紹介を起点にした出会いづくり</li><li>企業の強みが伝わる紹介のかたちを設計</li></ul>
+        </div>
+      </article>
+      <article class="biz">
+        <div class="biz__media rv"><div class="ph"><img src="https://images.unsplash.com/photo-1557425493-6f90ae4659fc?auto=format&fit=crop&w=1100&q=72" alt="ノートパソコンを前に笑顔で打ち合わせをするふたり" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></div></div>
+        <div class="rv">
+          <p class="biz__kind">営業支援型の広告 <em>Sales support</em></p>
+          <h3>営業の目的から、<br>広告を組み立てる。</h3>
+          <p>営業活動を後押しする広告で、商談につながる接点を増やします。</p>
+          <ul class="rule-list"><li>営業の目的に合わせた広告の企画</li><li>商談・取引までを見すえた支援</li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="idea" data-rail aria-labelledby="idea-h">
+    <div class="wrap idea">
+      <div>
+        <div class="sh rv"><p class="sh__en" aria-hidden="true">Our idea</p><h2 class="sh__ja" id="idea-h">ひとつの紹介から、<br>出会いはつながっていく。</h2></div>
+        <!-- 【確認事項】考え方の文章は案です -->
+        <p class="rv">よい出会いは、次の出会いを呼びます。ひとつの紹介が商談になり、取引になり、また新しい紹介へ。私たちはその連なりが生まれるきっかけをつくります。</p>
+      </div>
+      <div class="chain-wrap rv"><svg class="fig" viewBox="0 0 640 220" role="img" aria-label="ひとつの紹介が商談になり、取引になり、また次の紹介へとつながっていく図">
+  <path class="ln" pathLength="1" d="M60 110 H220 M260 110 H420 M460 110 H560"/>
+  <path class="ln2" pathLength="1" d="M580 110 C 620 110, 620 30, 560 30 H100 C 40 30, 40 90, 60 104"/>
+  <circle class="dot" cx="40" cy="110" r="20" fill="none" stroke="#8FA2FF" stroke-width="1.5"/>
+  <circle class="dot" cx="240" cy="110" r="20" fill="none" stroke="#EEEFF7" stroke-width="1.5"/>
+  <circle class="dot" cx="440" cy="110" r="20" fill="none" stroke="#EEEFF7" stroke-width="1.5"/>
+  <circle class="dot" cx="580" cy="110" r="20" fill="#8FA2FF"/>
+  <text class="lbl" x="22" y="160">紹介</text>
+  <text class="lbl" x="222" y="160">商談</text>
+  <text class="lbl" x="422" y="160">取引</text>
+  <text class="lbl" x="562" y="160">成長</text>
+  <text class="lbl en" x="280" y="22">and the next referral</text>
+</svg></div>
+    </div>
+  </section>
+
+  <section class="sec sec--paper" id="process" data-rail aria-labelledby="process-h">
+    <div class="wrap">
+      <div class="sh rv"><p class="sh__en" aria-hidden="true">Flow</p><h2 class="sh__ja" id="process-h">進め方</h2></div>
+      <!-- 【確認事項】4ステップは案です。実際の進め方に合わせてください（順序のある工程のため番号を使用） -->
+      <ol class="steps"><li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">01</span><h3>知る</h3><p>事業の強みや、出会いたい相手をうかがいます。</p></li><li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">02</span><h3>描く</h3><p>紹介と営業支援、どちらの広告が合うかを考えます。</p></li><li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">03</span><h3>つなぐ</h3><p>広告を通じて、商談につながる接点をつくります。</p></li><li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">04</span><h3>育てる</h3><p>生まれた出会いを、次の成長へつなげていきます。</p></li></ol>
+    </div>
+  </section>
+
+  <section class="sec" id="values" aria-labelledby="values-h">
+    <div class="wrap">
+      <div class="sh rv"><p class="sh__en" aria-hidden="true">Values</p><h2 class="sh__ja" id="values-h">大切にしていること</h2></div>
+      <!-- 【確認事項】3つの価値観は案です -->
+      <div class="values"><div class="value rv"><span class="value__mark" aria-hidden="true">Trust</span><h3>信頼を、いちばんに</h3><p>紹介は信頼の上に成り立つもの。だからこそ、誠実な仕事を積み重ねます。</p></div><div class="value rv"><span class="value__mark" aria-hidden="true">Growth</span><h3>成長につながるか</h3><p>広告の先にある、企業の成長。そのゴールから逆算して考えます。</p></div><div class="value rv"><span class="value__mark" aria-hidden="true">Together</span><h3>営業と、ともに</h3><p>営業の現場に寄り添い、同じ目線で次の一手を考えます。</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec sec--deep" id="message" data-rail aria-labelledby="msg-h">
+    <div class="wrap">
+      <div class="sh rv"><p class="sh__en" aria-hidden="true">Message</p><h2 class="sh__ja" id="msg-h">代表メッセージ</h2></div>
+      <!-- 【確認事項】代表メッセージは草案です。ご本人の確認・修正を経て公開してください -->
+      <div class="msg rv">
+      <h3 class="msg__title">出会いを、<br>つなげつづける。</h3>
+      <div class="msg__body"><p class="first">「この人の紹介なら、会ってみよう」。その一言が、事業を大きく動かすことがあります。</p><p>広告は、たくさんの人に知ってもらうための力です。けれど、企業の成長を本当に後押しするのは、知ってもらった先にある、信頼にもとづく出会いだと私たちは考えています。</p><p>だからこそ、広告と紹介、そして営業の現場をひとつながりで考えます。生まれた出会いが商談になり、取引になり、また次の紹介を呼ぶように。</p><p>ひとつの出会いを大切に。その連なりを、皆さまと一緒につくってまいります。</p>
+        <!-- 【確認事項】署名は会社名と役職のみの仮置きです。氏名を入れる場合はご本人の確認後に追記してください -->
+        <p class="msg__sign"><small>代表社員</small>渡部拓哉</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="sec" id="company" data-rail aria-labelledby="company-h">
+    <div class="wrap">
+      <div class="sh rv"><p class="sh__en" aria-hidden="true">Company</p><h2 class="sh__ja" id="company-h">会社概要</h2></div>
+      <div class="company rv">
+      <!-- 画像：Unsplash（仮）チーム。差し替え推奨 -->
+      <div class="co-photo"><div class="ph"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=72" alt="オフィスでチームが話し合う様子" loading="lazy" onerror="this.parentNode.classList.add('is-fallback');this.remove()"></div></div>
+      <dl class="profile">
+  <div><dt>商号</dt><dd>合同会社CIAL</dd></div>
+  <!-- 【確認事項】代表者の役職名（代表社員など）をご確認ください -->
+  <div><dt>代表者</dt><dd>代表社員　渡部拓哉</dd></div>
+  <!-- 【確認事項】所在地はCSVの記載（都道府県なし）のままです -->
+  <div><dt>所在地</dt><dd>〒453-0042　名古屋市中村区大秋町四丁目100-3</dd></div>
+  <div><dt>事業内容</dt><dd><ul><li>広告業（企業の成長を支える紹介・営業支援型広告事業）</li></ul></dd></div>
+  <!-- 【確認事項】設立・資本金・従業員数はCSVにないため未掲載です。判明したら下の行を有効にしてください -->
+  <!-- <div><dt>設立</dt><dd>----年--月</dd></div> -->
+  <!-- <div><dt>資本金</dt><dd>---万円</dd></div> -->
+  <!-- <div><dt>従業員数</dt><dd>--名</dd></div> -->
+</dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__in">
+      <div>
+        <a class="logo" href="#top" aria-label="合同会社CIAL トップへ"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 23 16 9 25 23" fill="none" stroke="#9499B8" stroke-width="1.2"/><circle cx="16" cy="9" r="3.2" fill="#EEEFF7"/><circle cx="7" cy="23" r="3.2" fill="#8FA2FF"/><circle cx="25" cy="23" r="3.2" fill="#8FA2FF"/></svg><span class="logo__name"><b style="font-family:var(--latin);font-weight:500;letter-spacing:.24em">CIAL</b><small>合同会社CIAL</small></span></a>
+        <p class="footer__tag">ひとつの紹介を、次の商談に。</p>
+      </div>
+      <nav aria-label="フッターメニュー"><ul><li><a href="#concept">名前のこと</a></li><li><a href="#service">事業内容</a></li><li><a href="#idea">考え方</a></li><li><a href="#process">進め方</a></li><li><a href="#message">代表メッセージ</a></li><li><a href="#company">会社概要</a></li></ul></nav>
+    </div>
+    <p class="copy">&copy; <span id="year">2026</span> 合同会社CIAL</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s,r){ return (r||document).querySelector(s); }
+  function $$(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); }
+  function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+  function ease(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; }
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+  function rgba(c,a){ return 'rgba(' + c + ',' + a + ')'; }
+  var cv = document.getElementById('heroCanvas');
+  var ctx = (cv && cv.getContext) ? cv.getContext('2d') : null;
+  var W = 0, H = 0, dpr = 1;
+  /* ===== site ===== */
+
+  /* hero: a referral chain — each node links the next ones, spreading outward */
+  var C_A = '143,162,255', C_T = '238,239,247';
+  var HERO_STILL = 40;
+  var nodes = [], links = [], mx = 0, my = 0, px = 0, py = 0;
+  function rnd(seed){ var x = Math.sin(seed*999.13)*43758.5453; return x - Math.floor(x); }
+  function heroBuild(){
+    var mob = W < 760, max = mob ? 34 : 70;
+    nodes = []; links = [];
+    var root = {x: mob ? W*.3 : W*.22, y: mob ? H*.32 : H*.4, t:.4, g:0};
+    nodes.push(root);
+    var q = [0], s = 1;
+    while (q.length && nodes.length < max){
+      var pi = q.shift(), p = nodes[pi], kids = p.g === 0 ? 3 : (rnd(s++) < .7 ? 2 : 1);
+      for (var k = 0; k < kids && nodes.length < max; k++){
+        var ang = (p.g === 0 ? -1.2 + k*1.1 : (rnd(s++) - .35) * 2.2) , len = (mob ? 46 : 80) + rnd(s++) * (mob ? 40 : 90);
+        var nx = p.x + Math.cos(ang) * len * (1 + p.g*.08), ny = p.y + Math.sin(ang) * len * .8;
+        if (nx < 10 || nx > W - 10 || ny < 70 || ny > H - 30) continue;
+        var n = {x:nx, y:ny, t:p.t + .55 + rnd(s++)*.35, g:p.g + 1};
+        nodes.push(n); links.push({a:pi, b:nodes.length - 1, t:p.t + .1, hot: rnd(s++) < .18});
+        q.push(nodes.length - 1);
+      }
+    }
+  }
+  addEventListener('pointermove', function(e){ mx = e.clientX/innerWidth - .5; my = e.clientY/innerHeight - .5; }, {passive:true});
+  function heroDraw(t){
+    ctx.clearRect(0, 0, W, H);
+    var dim = W < 760 ? .6 : 1;
+    px += (mx - px) * .04; py += (my - py) * .04;
+    function P(n){ var d = 1 + n.g*.5; return {x: n.x + px*d*10, y: n.y + py*d*8}; }
+    links.forEach(function(l){
+      var k = clamp((t - l.t) / .45, 0, 1); if (k <= 0) return;
+      var a = P(nodes[l.a]), b = P(nodes[l.b]), e = easeOut(k);
+      ctx.strokeStyle = l.hot ? rgba(C_A, .85*dim) : rgba(C_T, .22*dim); ctx.lineWidth = l.hot ? 1.3 : 1;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(a.x + (b.x - a.x)*e, a.y + (b.y - a.y)*e); ctx.stroke();
+      if (k >= 1 && !reduce){ var u = ((t - l.t) * .35 + l.a*.13) % 1; ctx.fillStyle = rgba(C_A, .8*dim); ctx.beginPath(); ctx.arc(a.x + (b.x - a.x)*u, a.y + (b.y - a.y)*u, 1.6, 0, Math.PI*2); ctx.fill(); }
+    });
+    nodes.forEach(function(n, i){
+      var k = clamp((t - n.t) / .5, 0, 1); if (k <= 0) return;
+      var p = P(n), r = (i === 0 ? 6 : 3.2 - Math.min(1.4, n.g*.25)) * easeOut(k);
+      var pulse = (t*.4 + i*.07) % 1;
+      if (i === 0 || n.g === 1){ ctx.strokeStyle = rgba(C_A, (1 - pulse)*.5*dim); ctx.beginPath(); ctx.arc(p.x, p.y, r + pulse*18, 0, Math.PI*2); ctx.stroke(); }
+      ctx.fillStyle = i === 0 ? rgba(C_T, dim) : rgba(C_A, .9*dim); ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI*2); ctx.fill();
+    });
+  }
+
+  /* rail: chain links, one more per section */
+  var railEl = document.getElementById('rail'), railNode = document.getElementById('railNode'), railRead = document.getElementById('railRead');
+  var linksR = [];
+  function railLayout(){
+    linksR.forEach(function(l){ l.el.remove(); }); linksR = [];
+    secProgress().forEach(function(p){ var el = document.createElement('i'); el.className = 'rail__link'; el.style.top = (p*100) + '%'; railEl.insertBefore(el, railNode); linksR.push({p:p, el:el}); });
+  }
+  function railUpdate(p){
+    railNode.style.top = (p*100) + '%';
+    var n = 0; linksR.forEach(function(l){ var on = p >= l.p - .002; l.el.classList.toggle('is-passed', on); if (on) n++; });
+    railRead.textContent = '紹介 ' + String(Math.max(1, n)).padStart(2, '0');
+  }
+
+  /* ---- hero canvas boilerplate ---- */
+  var running = false, visible = true, raf = 0, t0 = performance.now();
+  function resize(){
+    if (!ctx) return;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    heroBuild();
+  }
+  function loop(now){ if (!running) return; heroDraw((now - t0) / 1000); raf = requestAnimationFrame(loop); }
+  function start(){ if (!ctx || running || reduce || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+  function heroStill(){ if (ctx && !running) heroDraw(HERO_STILL); }
+  if (ctx){
+    resize();
+    if (reduce) heroStill(); else start();
+    var rt, lastW = W;
+    addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){
+      var w = cv.clientWidth; if (w === lastW && !reduce && running) { lastW = w; return; }
+      lastW = w; resize(); if (!running) heroStill(); }, 150); });
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){ visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(cv.parentElement);
+    }
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+  }
+
+  /* ---- header + rail (rAF throttled) ---- */
+  var header = document.getElementById('header'), ticking = false;
+  var railSecs = $$('[data-rail]');
+  function progress(){ var max = document.documentElement.scrollHeight - innerHeight; return max > 0 ? clamp(scrollY / max, 0, 1) : 0; }
+  function onScroll(){
+    header.classList.toggle('is-scrolled', scrollY > 40);
+    if (typeof railUpdate === 'function') railUpdate(progress());
+    bandParallax();
+    ticking = false;
+  }
+  addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  addEventListener('resize', function(){ if (typeof railLayout === 'function') railLayout(); onScroll(); });
+  addEventListener('load', function(){ if (typeof railLayout === 'function') railLayout(); onScroll(); });
+  function secProgress(){
+    var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    return railSecs.map(function(s){ return clamp((s.getBoundingClientRect().top + scrollY) / max, 0, 1); });
+  }
+
+  /* ---- band parallax ---- */
+  var bands = $$('.band .ph img');
+  function bandParallax(){
+    if (reduce) return;
+    bands.forEach(function(im){
+      var r = im.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      var k = (r.top + r.height/2 - innerHeight/2) / innerHeight;
+      im.style.transform = 'translateY(' + (k * -40).toFixed(1) + 'px)';
+    });
+  }
+
+  /* ---- menu ---- */
+  var btn = document.getElementById('menuBtn'), nav = document.getElementById('gnav');
+  function setMenu(open){
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    nav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open){ var f = nav.querySelector('a'); if (f) f.focus(); }
+  }
+  btn.addEventListener('click', function(){ setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+  nav.addEventListener('click', function(e){ if (e.target.closest('a') && nav.classList.contains('is-open')) setMenu(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')){ setMenu(false); btn.focus(); } });
+  matchMedia('(min-width:901px)').addEventListener('change', function(m){ if (m.matches) setMenu(false); });
+
+  /* ---- reveal: one-shot ---- */
+  var targets = $$('.rv, .fig, .steps, [data-reveal]');
+  function reveal(el){ el.classList.add('is-in'); if (typeof onReveal === 'function') onReveal(el); }
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (!en.isIntersecting) return; reveal(en.target); io.unobserve(en.target); });
+    }, {threshold:.18, rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(reveal);
+  }
+
+  /* ---- misc ---- */
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  if (typeof siteInit === 'function') siteInit();
+  if (typeof railLayout === 'function') railLayout();
+  onScroll();
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('is-loaded'); }); });
+})();
+</script>
+</body>
+</html>
